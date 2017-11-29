@@ -271,8 +271,9 @@ def main():
     if state == 'present':
         if delta or mad_delta:
             try:
-                irfm.build(
-                    member_id=member_id, mad_exclude=mad_delta, **delta)
+                irfm.build(stage=True,
+                           member_id=member_id, 
+                           mad_exclude=mad_delta, **delta)
             except PYHPError as e:
                 safe_fail(module, device, msg=str(e),
                           descr='There was an error preparing the'
@@ -292,7 +293,7 @@ def main():
                       commands=commands)
         else:
             try:
-                device.execute()
+                device.execute_staged()
                 end_state = irfm.get_config(member_id)
             except PYHPError as e:
                 safe_fail(module, device, msg=str(e))
