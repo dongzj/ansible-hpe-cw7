@@ -157,8 +157,8 @@ def main():
         argument_spec=dict(
             member_id=dict(type='str',
                            required=True),
-            irf_p1=dict(required=True),
-            irf_p2=dict(required=True),
+            irf_p1=dict(required=True, type='list'),
+            irf_p2=dict(required=True, type='list'),
             filename=dict(default='startup.cfg'),
             activate=dict(type='bool',
                           choices=BOOLEANS,

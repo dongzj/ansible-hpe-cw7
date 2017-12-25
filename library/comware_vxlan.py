@@ -147,7 +147,7 @@ def main():
         argument_spec=dict(
             vxlan=dict(required=True, type='str'),
             vsi=dict(required=True, type='str'),
-            tunnels=dict(required=False),
+            tunnels=dict(required=False, type='list'),
             descr=dict(required=False),
             state=dict(choices=['present', 'absent'], default='present'),
             port=dict(default=830, type='int'),
